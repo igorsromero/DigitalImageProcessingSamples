@@ -5,7 +5,7 @@ from numpy import asarray
   
 def main():
     # Open image
-    image = Image.open('images/lena.jpg')
+    image = Image.open('Images/imagem1.jpg')
     print(image.format)
     print(image.size)
     print(image.mode)
@@ -31,11 +31,17 @@ def main():
     print(npImage[0:5, 0:5])
     
     #Change values of lines 10 - 25
-    npImage[10:25,:] = 255;
+    #npImage[10:25,:] = 255;
 
     #Change values of columns 10 - 25
-    npImage[:,10:25] = 0;
+    #npImage[:,10:25] = 0;
 
+    # Inverter os pixels
+    print("Invertendo os pixels...")
+    for i in range(npImage.shape[0]):
+        for j in range(npImage.shape[1]):
+            npImage[i,j] = abs(npImage[i,j] - 255)
+    
     #Convert ndarray image to Pillow image
     image2 = Image.fromarray(npImage)
     image2.show()
@@ -43,6 +49,7 @@ def main():
     # create the histogram
     histogram, bin_edges = np.histogram(npImage, bins=256, range=(0, 255))
     print(histogram.shape)
+    
 
 if __name__ == "__main__":
     main()
