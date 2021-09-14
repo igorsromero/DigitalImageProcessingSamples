@@ -7,7 +7,7 @@ from scipy import ndimage
 image = Image.open('Images/imagem4.jpg')
 # image.show()
 # Imagem para array
-img_array = np.array(image)
+img_array = np.array(image).astype(int)
 
 
 ## ALTERNATIVA A
@@ -18,7 +18,7 @@ k = np.array([[0, 0, 0],[0, 1, 0],[0, 0, 0]])
 ndarray = ndimage.convolve(img_array, k, mode='wrap', cval=0.0)
 img_array_convolved = np.array(ndarray)
 img_convolved = Image.fromarray(img_array_convolved)
-img_convolved.save('Images/FiltragemEspacial/A.jpg')
+img_convolved.convert('L').save('Images/FiltragemEspacial/A.jpg')
 
 ## ALTERNATIVA B
 
@@ -28,7 +28,7 @@ k = np.array([[1, 0, -1],[0, 0, 0],[-1, 0, 1]])
 ndarray = ndimage.convolve(img_array, k, mode='wrap', cval=0.0)
 img_array_convolved = np.array(ndarray)
 img_convolved = Image.fromarray(img_array_convolved)
-img_convolved.save('Images/FiltragemEspacial/B.jpg')
+img_convolved.convert('L').save('Images/FiltragemEspacial/B.jpg')
 
 ## ALTERNATIVA C
 
@@ -38,7 +38,7 @@ k = np.array([[0, -1, 0],[-1, 4, -1],[0, -1, 0]])
 ndarray = ndimage.convolve(img_array, k, mode='wrap', cval=0.0)
 img_array_convolved = np.array(ndarray)
 img_convolved = Image.fromarray(img_array_convolved)
-img_convolved.save('Images/FiltragemEspacial/C.jpg')
+img_convolved.convert('L').save('Images/FiltragemEspacial/C.jpg')
 
 ## ALTERNATIVA D
 
@@ -48,7 +48,7 @@ k = np.array([[-1, -1, -1],[-1, 8, -1],[-1, -1, -1]])
 ndarray = ndimage.convolve(img_array, k, mode='wrap', cval=0.0)
 img_array_convolved = np.array(ndarray)
 img_convolved = Image.fromarray(img_array_convolved)
-img_convolved.save('Images/FiltragemEspacial/D.jpg')
+img_convolved.convert('L').save('Images/FiltragemEspacial/D.jpg')
 
 ## ALTERNATIVA E
 
@@ -58,7 +58,7 @@ k = np.array([[0, -1, 0],[-1, 5, -1],[0, -1, 0]])
 ndarray = ndimage.convolve(img_array, k, mode='wrap', cval=0.0)
 img_array_convolved = np.array(ndarray)
 img_convolved = Image.fromarray(img_array_convolved)
-img_convolved.save('Images/FiltragemEspacial/E.jpg')
+img_convolved.convert('L').save('Images/FiltragemEspacial/E.jpg')
 
 ## ALTERNATIVA F
 
@@ -70,7 +70,7 @@ m = k*(1/9)
 ndarray = ndimage.convolve(img_array, m, mode='wrap', cval=0.0)
 img_array_convolved = np.array(ndarray)
 img_convolved = Image.fromarray(img_array_convolved)
-img_convolved.save('Images/FiltragemEspacial/F.jpg')
+img_convolved.convert('L').save('Images/FiltragemEspacial/F.jpg')
 
 ## ALTERNATIVA G
 
@@ -82,7 +82,7 @@ m = k*(1/16)
 ndarray = ndimage.convolve(img_array, m, mode='wrap', cval=0.0)
 img_array_convolved = np.array(ndarray)
 img_convolved = Image.fromarray(img_array_convolved)
-img_convolved.save('Images/FiltragemEspacial/G.jpg')
+img_convolved.convert('L').save('Images/FiltragemEspacial/G.jpg')
 
 ## ALTERNATIVA H
 
@@ -94,7 +94,7 @@ m = k*(1/256)
 ndarray = ndimage.convolve(img_array, m, mode='wrap', cval=0.0)
 img_array_convolved = np.array(ndarray)
 img_convolved = Image.fromarray(img_array_convolved)
-img_convolved.save('Images/FiltragemEspacial/H.jpg')
+img_convolved.convert('L').save('Images/FiltragemEspacial/H.jpg')
 
 ## ALTERNATIVA I
 
@@ -106,4 +106,4 @@ m = k*(-1/256)
 ndarray = ndimage.convolve(img_array, m, mode='wrap', cval=0.0)
 img_array_convolved = np.array(ndarray)
 img_convolved = Image.fromarray(img_array_convolved)
-img_convolved.save('Images/FiltragemEspacial/I.jpg')
+img_convolved.convert('L').save('Images/FiltragemEspacial/I.jpg')
