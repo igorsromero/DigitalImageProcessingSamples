@@ -2,6 +2,7 @@ from PIL import Image
 
 widthImage, heightImage = 512, 512
 filePath = "./Trabalho-2/Imagens/quadrado-branco-no-fundo-preto.png"
+imagensPath = "./Trabalho-2/Imagens/"
 fileName = (filePath, "PNG")
 
 ObjPillow = Image.new("RGB", (widthImage, heightImage))
